@@ -29,6 +29,6 @@ async def WindowsUser(request:fastapi.Request):
         )
     else:
         #第三次請求（認證成功）后獲取訪問用戶名
-        name = auth.credentials.QueryCredentialsAttributes(sspicon.SECPKG_CRED_ATTR_NAMES)
+        name = auth.ctxt.QueryContextAttributes(sspicon.SECPKG_CRED_ATTR_NAMES)
         auth.reset() #重設狀態，便於後續認證
         return name
